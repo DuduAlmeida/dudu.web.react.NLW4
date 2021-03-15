@@ -1,6 +1,6 @@
 /* #region Imports*/
 
-import styles from '../../styles/components/Profile.module.scss';
+import styles from '../styles/components/Profile.module.scss';
 
 /* #endregion Imports*/
 

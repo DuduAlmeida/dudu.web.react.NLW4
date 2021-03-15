@@ -1,7 +1,10 @@
 /* #region Imports*/
 
-import { Profile } from '../components/Profile/Profile';
-import ExperienceBar from '../components/ExperienceBar/ExperienceBar';
+import React from 'react';
+import ExperienceBar from '../components/ExperienceBar';
+
+import { Profile } from '../components/Profile';
+import { CompletedChalenged } from '../components/CompletedChallenges';
 
 import styles from '../styles/pages/Home.module.scss';
 
@@ -16,6 +19,7 @@ export default function Home() {
       <section>
         <div className="">
           <Profile></Profile>
+          <CompletedChalenged></CompletedChalenged>
         </div>
         <div className="">
 
