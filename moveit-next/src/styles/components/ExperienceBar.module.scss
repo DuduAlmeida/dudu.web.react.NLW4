@@ -1,11 +1,11 @@
-.experience-bar{
+.experienceBar{
     display: flex;
     align-items: center;
 
     span{
         font-size: 1rem;
 
-        &.current-experience{
+        &.currentExperience{
             top: 1.2rem;
             position: absolute;
             transform: translateX(-50%);
