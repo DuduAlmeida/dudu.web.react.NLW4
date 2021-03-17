@@ -4,6 +4,7 @@ import React from 'react';
 import ExperienceBar from '../components/ExperienceBar';
 
 import { Profile } from '../components/Profile';
+import { Countdown } from '../components/Countdown';
 import { CompletedChalenged } from '../components/CompletedChallenges';
 
 import styles from '../styles/pages/Home.module.scss';
@@ -20,6 +21,7 @@ export default function Home() {
         <div className="">
           <Profile></Profile>
           <CompletedChalenged></CompletedChalenged>
+          <Countdown></Countdown>
         </div>
         <div className="">
 
