@@ -1,10 +1,11 @@
 /* #region Imports*/
 
 import React from 'react';
-import ExperienceBar from '../components/ExperienceBar';
+import { Head } from 'next/document';
 
 import { Profile } from '../components/Profile';
 import { Countdown } from '../components/Countdown';
+import ExperienceBar from '../components/ExperienceBar';
 import { CompletedChalenged } from '../components/CompletedChallenges';
 
 import styles from '../styles/pages/Home.module.scss';
@@ -14,6 +15,9 @@ import styles from '../styles/pages/Home.module.scss';
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Início | move.it</title>
+      </Head>
 
       <ExperienceBar></ExperienceBar>
 
