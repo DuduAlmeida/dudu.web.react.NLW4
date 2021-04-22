@@ -1,7 +1,8 @@
 /* #region Imports*/
 
 import React from 'react';
-import { Head } from 'next/document';
+
+import Head from 'next/head';
 
 import { Profile } from '../components/Profile';
 import { Countdown } from '../components/Countdown';
