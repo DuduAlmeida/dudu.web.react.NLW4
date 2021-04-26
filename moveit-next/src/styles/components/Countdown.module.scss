@@ -58,10 +58,27 @@
 
         transition: background-color 0.2s ease-in-out;
 
-        &:hover {
+        &:not(:disabled):hover {
             background: var(--blue-dark);
 
             transition: background-color 0.2s ease-in-out;
+        }
+
+        &:disabled {
+            background: var(--white);
+            cursor: not-allowed;
+            color: var(--text);
+        }
+
+        &Active {
+            background-color: var(--white);
+            color: var(--title);
+            box-shadow: 2px 2px 4px #d6d6d6;
+
+            &:hover {
+                background: var(--red);
+                color: var(--white);
+            }
         }
     }
 }
