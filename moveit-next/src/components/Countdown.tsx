@@ -1,6 +1,9 @@
 /* #region Imports*/
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
+import { ChallengesContext } from '../contexts/ChallengesContext';
+
 import styles from '../styles/components/Countdown.module.scss';
 
 /* #endregion Imports*/
@@ -8,6 +11,11 @@ import styles from '../styles/components/Countdown.module.scss';
 let countdownTimeout: NodeJS.Timeout;
 
 export function Countdown() {
+    // #region Contexts
+
+    const { startNewChallenge } = useContext(ChallengesContext)
+
+    // #endregion Contexts
 
     // #region States
 
@@ -55,6 +63,7 @@ export function Countdown() {
 
             setHasFinished(true);
             setIsActive(false);
+            startNewChallenge();
         }
     }, [isActive, time])
 
