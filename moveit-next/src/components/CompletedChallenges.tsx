@@ -14,6 +14,7 @@ export function CompletedChalenged() {
     const { challengesCompleted } = useContext(ChallengesContext);
 
     // #endregion Contexts
+
     return (
         <div className={styles.completedChallengesContainer}>
             <span>Desafios completos</span>

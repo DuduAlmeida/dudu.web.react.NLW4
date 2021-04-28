@@ -32,6 +32,7 @@ interface ChallengesOutput {
   activeChallenge: Challenge,
   challengesCompleted: number,
   startNewChallenge: Function,
+  completeChallenge: Function,
   experienceToNextLevel: number,
 }
 
@@ -73,6 +74,24 @@ export function ChallengesProvider({ children }: ChallengesInput) {
     setActiveChallenge(null);
   }
 
+  function completeChallenge() {
+    if (!activeChallenge)
+      return;
+
+    const { amount } = activeChallenge;
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience = finalExperience - experienceToNextLevel;
+      levelUp();
+    }
+
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null);
+    setChallengesCompleted(challengesCompleted + 1);
+  }
+
   // #endregion Functions
 
   return (
@@ -85,6 +104,7 @@ export function ChallengesProvider({ children }: ChallengesInput) {
       activeChallenge,
       resetChallenge,
       experienceToNextLevel,
+      completeChallenge,
     }}>
       { children}
     </ChallengesContext.Provider>

@@ -20,7 +20,7 @@ interface Inputs {
 const ChallengeBox: React.FC<Inputs> = () => {
   // #region Contexts
 
-  const { activeChallenge, resetChallenge } = useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge, completeChallenge } = useContext(ChallengesContext);
 
   // #endregion Contexts
 
@@ -52,6 +52,7 @@ const ChallengeBox: React.FC<Inputs> = () => {
               <button
                 type="button"
                 className={styles.challengeSucceededButton}
+                onClick={() => completeChallenge()}
               >
                 Completei
               </button>
