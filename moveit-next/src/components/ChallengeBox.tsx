@@ -1,7 +1,9 @@
 // #region Imports
 
 import React, { useContext } from 'react';
+
 import { ChallengesContext } from '../contexts/ChallengesContext';
+import { CountdownContext } from '../contexts/CountdownContext';
 
 import styles from '../styles/components/ChallengeBox.module.scss';
 
@@ -21,8 +23,23 @@ const ChallengeBox: React.FC<Inputs> = () => {
   // #region Contexts
 
   const { activeChallenge, resetChallenge, completeChallenge } = useContext(ChallengesContext);
+  const { resetCountdown } = useContext(CountdownContext);
 
   // #endregion Contexts
+
+  // #region Functions
+
+  function handleChallengeSucceeded() {
+    completeChallenge();
+    resetCountdown();
+  }
+
+  function handleChallengeFailed() {
+    resetChallenge();
+    resetCountdown();
+  }
+
+  // #endregion Functions
 
   return (
     <div className={styles.challengeBoxContainer}>
@@ -44,7 +61,7 @@ const ChallengeBox: React.FC<Inputs> = () => {
               <button
                 type="button"
                 className={styles.challengeFailedButton}
-                onClick={() => resetChallenge()}
+                onClick={() => handleChallengeFailed()}
               >
                 Falhei
               </button>
@@ -52,7 +69,7 @@ const ChallengeBox: React.FC<Inputs> = () => {
               <button
                 type="button"
                 className={styles.challengeSucceededButton}
-                onClick={() => completeChallenge()}
+                onClick={() => handleChallengeSucceeded()}
               >
                 Completei
               </button>
