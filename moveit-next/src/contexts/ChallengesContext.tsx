@@ -1,6 +1,6 @@
 // #region Imports
 
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import challenges from '../../challenges.json';
 
@@ -57,6 +57,14 @@ export function ChallengesProvider({ children }: ChallengesInput) {
 
   // #endregion Properties
 
+  // #region LifeCycle Events
+  
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+  
+  // #endregion LifeCycle Events
+
   // #region Functions
 
   function levelUp() {
@@ -68,6 +76,14 @@ export function ChallengesProvider({ children }: ChallengesInput) {
     const challenge = challenges[randomChallengeIndex];
 
     setActiveChallenge(challenge);
+
+    new Audio('/notification.mp3').play();
+
+    if(Notification.permission === 'granted'){
+      new Notification('Novo desafio!', {
+        body: `Valendo ${challenge.amount}xp!`
+      })
+    }
   }
 
   function resetChallenge() {
